@@ -1,0 +1,63 @@
+
+Projet 7: Clustering Basé sur les Graphes avec Affinity Propagation
+
+Partie 1: Comprendre Affinity Propagation
+
+---
+
+1. Fonctionnement et Intuition de Affinity Propagation
+
+Affinity Propagation est une méthode de clustering basée sur l'échange de messages entre les points de données. Contrairement à K-means, qui nécessite de spécifier un nombre de clusters, Affinity Propagation identifie automatiquement des exemplars (représentants des clusters).
+
+- Étapes principales :
+  1. Similarité : Les similarités entre les points sont calculées, souvent avec une distance euclidienne inversée ou une autre mesure.
+  2. Messages :
+     - Responsabilité (\(r(i, k)\)) : Indique dans quelle mesure un point \(i\) considère \(k\) comme un bon exemplaire.
+     - Disponibilité (\(a(i, k)\)) : Reflète à quel point \(k\) est approprié comme exemplaire pour \(i\), en tenant compte des autres points.
+  3. Propagation des messages : Ces messages sont mis à jour de manière itérative jusqu'à convergence.
+  4. Identification des exemplars : Une fois les messages stabilisés, les clusters sont formés autour des exemplars.
+
+Différences principales avec d'autres algorithmes :
+- Ne nécessite pas un nombre prédéfini de clusters.
+- Peut capturer des clusters de formes complexes.
+- Plus coûteux en calcul comparé à K-means.
+
+---
+
+2. Comparaison avec K-means, DBSCAN et GMM
+
+| Critère              | Affinity Propagation         | K-means                  | DBSCAN                    | GMM                       |
+|----------------------|------------------------------|--------------------------|---------------------------|---------------------------|
+| Nombre de clusters   | Automatique                 | Doit être spécifié       | Automatique               | Doit être spécifié        |
+| Forme des clusters   | Non-linéaires               | Linéaires                | Non-linéaires             | Linéaires/non-linéaires   |
+| Efficacité           | Moins efficace sur grands jeux | Rapide                   | Moins efficace sur grands jeux | Moyennement efficace |
+| Robustesse au bruit  | Moyenne                     | Faible                   | Forte                     | Moyenne                   |
+| Applications         | Données complexes, non convexes | Données bien séparées    | Données avec bruit        | Mixtures de distributions |
+
+---
+
+3. Applications
+
+Affinity Propagation est utile dans des contextes où les clusters ne sont pas convexes et où le nombre de clusters est inconnu. Voici quelques exemples :
+- Analyse de réseaux sociaux : Identifier des communautés dans les réseaux sociaux.
+- Traitement du langage naturel : Clustering de documents ou d'entités.
+- Bioinformatique : Identifier des sous-types génétiques ou des motifs biologiques.
+- Vision par ordinateur : Grouper des caractéristiques similaires dans des images.
+
+---
+
+4. Avantages et Inconvénients de Affinity Propagation
+
+Avantages :
+1. Automatisation : Détecte automatiquement le nombre de clusters.
+2. Flexibilité : Fonctionne avec des clusters non convexes et des structures complexes.
+3. Interprétabilité : Identifie des exemplars représentant chaque cluster.
+
+Inconvénients :
+1. Coût computationnel élevé : Peu adapté aux très grands jeux de données.
+2. Sensibilité aux hyperparamètres : Les résultats dépendent des paramètres tels que la préférence (similarité auto-attribuée).
+3. Scalabilité : Peut être inefficace pour des jeux de données massifs.
+
+---
+
+Si vous souhaitez appliquer cela à votre fichier data.csv, passez à la Partie 2 : Application Pratique pour implémenter l'algorithme et comparer avec d'autres méthodes (K-means, DBSCAN, GMM).
