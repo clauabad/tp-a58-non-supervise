@@ -1,0 +1,81 @@
+ Projet 7 : Clustering basé sur les Graphes avec Affinity Propagation 
+
+---
+
+ Slide 1 : Titre   
+Bonjour à tous et bienvenue à cette présentation sur le clustering basé sur les graphes avec l’algorithme Affinity Propagation. Le clustering est une technique d’apprentissage non supervisé permettant de regrouper des données similaires. Nous allons étudier comment Affinity Propagation fonctionne, ses avantages et inconvénients, ainsi que le comparer avec d'autres algorithmes de clustering comme K-Means, DBSCAN et GMM.
+
+---
+
+ Slide 2 : Comprendre Affinity Propagation   
+Affinity Propagation est un algorithme de clustering qui fonctionne par échanges de messages entre les points de données pour identifier des « exemplars », c'est-à-dire des points représentatifs servant de centres de clusters. Contrairement à d'autres méthodes comme K-Means, il ne nécessite pas de définir le nombre de clusters à l’avance, ce qui peut être un avantage dans des situations où ce nombre est inconnu.
+
+Le principe repose sur deux types de messages échangés entre les points :  
+- Le message de responsabilité : il indique à quel point un point est approprié pour être un exemplar.  
+- Le message de disponibilité : il indique dans quelle mesure un point accepte d’être un exemplar.  
+
+Ces messages sont mis à jour de manière itérative jusqu’à convergence.
+
+---
+
+ Slide 3 : Comparaison avec d'autres algorithmes   
+Affinity Propagation se distingue des autres méthodes de clustering de plusieurs manières :  
+-  K-Means  est rapide et efficace, mais impose de fixer un nombre de clusters à l’avance, ce qui peut être une contrainte si le nombre optimal n'est pas connu.  
+-  DBSCAN  est capable de détecter des formes complexes de clusters et identifie naturellement les points aberrants (outliers). Toutefois, il est très sensible aux hyperparamètres ε et MinPts.  
+-  GMM (Gaussian Mixture Model)  est probabiliste et fonctionne bien lorsque les clusters ont une distribution gaussienne, mais il peut être moins performant si les clusters ont des formes irrégulières.  
+
+---
+
+ Slide 4 : Applications   
+Affinity Propagation est utilisé dans plusieurs domaines :  
+-  Segmentation d’images , notamment en vision par ordinateur.  
+-  Clustering de documents et textes , par exemple pour organiser automatiquement des articles de presse.  
+-  Analyse de données biologiques , comme la classification de séquences génétiques.  
+-  Segmentation de clients  en marketing pour une meilleure personnalisation des services.  
+
+---
+
+ Slide 5 : Avantages et Inconvénients   
+ Avantages :   
+- Ne nécessite pas de spécifier le nombre de clusters à l’avance.  
+- Détecte des structures complexes et s’adapte aux relations non linéaires entre les points.  
+
+ Inconvénients :   
+- Gourmand en mémoire et en calcul.  
+- Sensible aux hyperparamètres, notamment au paramètre de préférence qui influence directement le nombre de clusters.  
+
+---
+
+ Slide 6 : Application Pratique - Clustering sur le dataset Wine   
+Nous avons appliqué Affinity Propagation au dataset  Wine , qui contient des informations sur différentes variétés de vins.  
+- Les données ont été  normalisées  pour éviter les biais.  
+- Une  réduction de dimension avec PCA  a été réalisée pour faciliter l'analyse.  
+- Nous avons testé plusieurs algorithmes :  Affinity Propagation, K-Means, DBSCAN, GMM .  
+
+---
+
+ Slide 7 : Évaluation des modèles   
+Nous avons utilisé deux métriques d'évaluation :  
+1.  Le Silhouette Score , qui mesure la cohésion des clusters. Un score proche de 1 indique un bon regroupement.  
+2.  L’Accuracy , qui compare les clusters obtenus aux classes réelles des vins pour évaluer leur pertinence.  
+
+---
+
+ Slide 8 : Comparaison des résultats   
+L’analyse des résultats met en évidence plusieurs observations :  
+-  DBSCAN  offre la meilleure performance, car il identifie correctement les groupes naturels et est robuste aux valeurs aberrantes.  
+-  Affinity Propagation  produit un nombre élevé de clusters, ce qui peut rendre l'interprétation plus difficile.  
+-  K-Means  est efficace, mais dépend du choix du nombre de clusters.  
+-  GMM  fonctionne bien pour des données suivant une distribution gaussienne.  
+
+---
+
+ Slide 9 : Conclusion   
+En conclusion, chaque algorithme a ses forces et ses faiblesses :  
+-  Affinity Propagation  est adapté pour détecter des relations complexes sans fixer le nombre de clusters.  
+-  DBSCAN  est performant pour des données avec des formes complexes et la détection d’outliers, mais très dépendant des hyperparamètres.  
+-  K-Means  est rapide et efficace lorsque le nombre de clusters est bien défini.  
+-  GMM  est une bonne alternative lorsque les clusters ont une distribution gaussienne.  
+
+Ainsi, le choix de l’algorithme doit être guidé par la nature des données et les besoins du projet.
+
